@@ -2,7 +2,7 @@ package com.ekocaman.sunshine.app;
 
 import android.content.Context;
 
-import com.ekocaman.sunshine.MainActivity;
+import com.ekocaman.sunshine.service.WeatherServerImpl;
 import com.ekocaman.sunshine.service.WeatherService;
 
 import javax.inject.Named;
@@ -13,7 +13,7 @@ import dagger.Provides;
 
 @Module(
         injects = {
-                MainActivity.class
+                SunshineApp.class
         },
         complete = false,
         library = true
@@ -34,6 +34,6 @@ public class SunshineModule {
     @Provides
     @Singleton
     WeatherService provideWeatherService() {
-        return new WeatherService();
+        return new WeatherServerImpl();
     }
 }

@@ -1,8 +1,13 @@
 package com.ekocaman.sunshine.service;
 
-public class WeatherService {
+import com.ekocaman.sunshine.data.Result;
 
-    public String test(String parameter) {
-        return "Parameter : " + parameter;
-    }
+import retrofit.http.GET;
+import retrofit.http.Path;
+import retrofit.http.Query;
+
+public interface WeatherService {
+
+    @GET("/data/2.5/forecast/daily?mode=json&cnt=7")
+    Result getWeatherResult(@Query("q") String postcode, @Query("units") String units);
 }
